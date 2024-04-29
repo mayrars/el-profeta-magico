@@ -1,5 +1,4 @@
-<div class="container mx-auto px-4 py-5 ">
-  <h1></h1>
+<div class="container mx-auto px-4 py-5 mt-4">
   <div class="grid grid-rows-2 grid-cols-6 gap-4">
     @for (item of topNews; track $index) {
       <div class="{{$index==0 ? 'col-span-4 row-span-2' : $index==1 ? 'col-span-2' : 'col-span-2'}} bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-100 dark:border-gray-200">
@@ -11,13 +10,13 @@
           }
         </a>
         <div class="p-5">
-            <a href="#">
-              <h2 class="text-2xl text-bold text-black mb-4">{{item.title}}</h2>
+            <a routerLink="article/{{item.title}}">
+              <h2 class="text-2xl text-bold text-black mb-5">{{item.title}}</h2>
             </a>
             @if($index==0){
-              <p>{{item.content}}</p>
+              <p class="mb-3">{{item.description}}</p>
             }
-            <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            <a routerLink="article/{{item.title}}" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-black bg-yellow-500 rounded-lg hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-yellow-500 dark:hover:bg-yellow-600 dark:focus:ring-yellow-700 mt-5">
                 Read more
                 <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
@@ -26,5 +25,137 @@
         </div>
       </div>
     }
+  </div>
+  <div>
+    <h2 class="text-4xl font-bold text-black mb-5 mt-5">Business</h2>
+    <div class="grid grid-cols-4 grid-rows-1 gap-4">
+      @for (business of businessNews; track $index) {
+        <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-100 dark:border-gray-200 mb-5">
+          <a routerLink="article/{{business.title}}">
+            @if(business.urlToImage == null){
+              <img src="assets/image-not-found.png" class="aspect-video" alt="{{business.title}}">
+            }@else{
+              <img src="{{business.urlToImage}}" class="aspect-video w-full" alt="{{business.title}}">
+            }
+          </a>
+          <div class="p-5">
+            <h2 class="text-2xl text-bold text-black mb-5">{{business.title}}</h2>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</div>
+
+<div class="bg-yellow-500">
+  <div class="container mx-auto px-4 py-5 mt-4">
+    <div class="grid grid-cols-3 grid-rows-1 gap-4 mt-5">
+      <div class="">
+        <h2 class="text-4xl font-bold text-black mb-5 text-left">Technology</h2>
+        <div class="">
+          @for (item of technologyNews; track $index) {
+            <div class="grid grid-cols-3 gap-4 mb-5">
+              <div class="col-span-1">
+                @if(item.urlToImage == null){
+                  <img src="assets/image-not-found.png" class="aspect-video" alt="{{item.title}}">
+                }@else{
+                  <img src="{{item.urlToImage}}" class="aspect-video w-full" alt="{{item.title}}">
+                }
+              </div>
+              <div class="col-span-2">
+                <h2 class="text-1xl font-bold text-black mb-5">
+                  {{item.title}}
+                </h2>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+      <div class="">
+        <h2 class="text-4xl font-bold text-black mb-5 text-left">Entertainment</h2>
+        @for (item of entertainmentNews; track $index) {
+          <div class="grid grid-cols-3 gap-4 mb-5">
+            <div class="col-span-1">
+              @if(item.urlToImage == null){
+                <img src="assets/image-not-found.png" class="aspect-video" alt="{{item.title}}">
+              }@else{
+                <img src="{{item.urlToImage}}" class="aspect-video w-full" alt="{{item.title}}">
+              }
+            </div>
+            <div class="col-span-2">
+              <h2 class="text-1xl font-bold text-black mb-5">
+                {{item.title}}
+              </h2>
+            </div>
+          </div>
+        }
+      </div>
+
+      <div class="">
+        <h2 class="text-4xl font-bold text-black mb-5 text-left">Health</h2>
+        @for (item of healtNews; track $index) {
+          <div class="grid grid-cols-3 gap-4 mb-5">
+            <div class="col-span-1">
+              @if(item.urlToImage == null){
+                <img src="assets/image-not-found.png" class="aspect-video" alt="{{item.title}}">
+              }@else{
+                <img src="{{item.urlToImage}}" class="aspect-video w-full" alt="{{item.title}}">
+              }
+            </div>
+            <div class="col-span-2">
+              <h2 class="text-1xl font-bold text-black mb-5">
+                {{item.title}}
+              </h2>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container mx-auto px-4 py-5 mt-4">
+  <div class="grid grid-cols-2 grid-rows-1 gap-4 mt-5">
+    <div class="">
+      <h2 class="text-4xl font-bold text-black mb-5 text-left">Science</h2>
+      <div class="">
+        @for (item of scienceNews; track $index) {
+          <div class="grid grid-cols-3 gap-4 mb-5">
+            <div class="col-span-1">
+              @if(item.urlToImage == null){
+                <img src="assets/image-not-found.png" class="aspect-video" alt="{{item.title}}">
+              }@else{
+                <img src="{{item.urlToImage}}" class="aspect-video w-full" alt="{{item.title}}">
+              }
+            </div>
+            <div class="col-span-2">
+              <h2 class="text-2xl font-bold text-black mb-5">
+                {{item.title}}
+              </h2>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+    <div class="">
+      <h2 class="text-4xl font-bold text-black mb-5 text-left">Sports</h2>
+      <div class="">
+        @for (item of sportsNews; track $index) {
+          <div class="grid grid-cols-3 gap-4 mb-5">
+            <div class="col-span-1">
+              @if(item.urlToImage == null){
+                <img src="assets/image-not-found.png" class="aspect-video" alt="{{item.title}}">
+              }@else{
+                <img src="{{item.urlToImage}}" class="aspect-video w-full" alt="{{item.title}}">
+              }
+            </div>
+            <div class="col-span-2">
+              <h2 class="text-2xl font-bold text-black mb-5">
+                {{item.title}}
+              </h2>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
   </div>
 </div>
