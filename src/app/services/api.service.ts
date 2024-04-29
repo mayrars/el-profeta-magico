@@ -10,8 +10,8 @@ import { Article } from '../models/article.model';
 export class ApiService {
   private http = inject(HttpClient)
   private apiUrl = environment.apiUrl;
-   
-  getTopHeadlines():Observable<any> {
-    return this.http.get(`${this.apiUrl}/top-headlines?country=us&category=general&apiKey=${environment.apiKey}`)
+  //get news by category
+  getnewsByCategory(category:string):Observable<any> {
+    return this.http.get(`${this.apiUrl}/top-headlines?country=us&category=${category}&apiKey=${environment.apiKey}`)
   }
 }
