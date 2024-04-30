@@ -1,5 +1,5 @@
 <div class="container mx-auto px-4 py-5 mt-4">
-    <h1 class="text-2xl font-bold mb-4">{{category | uppercase}}</h1>
+    <h1 class="text-4xl font-bold mb-9">{{category | titlecase}}</h1>
     <div class="grid grid-cols-4 gap-4">
         @for (item of newsCategory; track $index) {
             <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-100 dark:border-gray-200 mb-5">
