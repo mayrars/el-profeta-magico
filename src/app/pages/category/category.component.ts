@@ -3,11 +3,12 @@ import { ActivatedRoute, Params, RouterLink } from '@angular/router';
 import { ApiService } from '../../services/api.service';
 import { Article } from '../../models/article.model';
 import { TitleCasePipe } from '@angular/common';
+import { CardComponent } from '../../components/card/card.component';
 
 @Component({
   selector: 'app-category',
   standalone: true,
-  imports: [RouterLink,TitleCasePipe],
+  imports: [RouterLink,TitleCasePipe,CardComponent],
   templateUrl: './category.component.html',
   styleUrl: './category.component.scss'
 })
