@@ -23,7 +23,6 @@ export class CategoryComponent implements OnInit{
         this.category = params['title']
         this._apiService.getnewsByCategory(params['title']).subscribe(data => {
           this.newsCategory = data.articles
-          console.log(this.newsCategory)
         })
       },
       error: (err: any)=>{
