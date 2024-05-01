@@ -2,7 +2,7 @@
   <h1 class="text-4xl font-bold mb-9">{{category | titlecase}}</h1>
   <div class="grid grid-cols-4 gap-8">
     @for (item of newsCategory; track $index) {
-      <app-card [article]="item" class="h-full"></app-card>
+      <app-card [article]="item" type="horizontal" class="h-full"></app-card>
     }
   </div>
 </div>
