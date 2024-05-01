@@ -2,11 +2,12 @@ import { Component, inject, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { Article } from '../../models/article.model';
 import { RouterLink } from '@angular/router';
+import { CardComponent } from '../../components/card/card.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink,CardComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
