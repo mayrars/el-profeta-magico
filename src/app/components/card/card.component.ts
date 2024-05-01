@@ -1,4 +1,4 @@
-import { Component,Input } from '@angular/core';
+import { Component,Input, OnInit } from '@angular/core';
 import { Article } from '../../models/article.model';
 
 @Component({
@@ -8,8 +8,9 @@ import { Article } from '../../models/article.model';
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss'
 })
-export class CardComponent {
-  @Input() 
-  article!: Article;
-  
+export class CardComponent implements OnInit{
+  @Input() article!: Article;
+  @Input() type: string = '';
+  ngOnInit(): void {
+  }  
 }
