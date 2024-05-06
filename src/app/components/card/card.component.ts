@@ -11,6 +11,8 @@ import { Article } from '../../models/article.model';
 export class CardComponent implements OnInit{
   @Input() article!: Article;
   @Input() type: string = '';
+  @Input() description: boolean = true;
+  @Input() image: boolean = true;
   ngOnInit(): void {
   }  
 }

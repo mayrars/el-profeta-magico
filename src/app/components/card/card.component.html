@@ -1,13 +1,20 @@
 @if (type=="horizontal") {
   <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-100 dark:border-gray-200 h-full">
-    @if(article.urlToImage == null){
-      <img src="assets/image-not-found.png" class="imagesize" width='1280' height='720' alt="{{article.title}}" loading="lazy">
-    }@else{
-      <img src="{{article.urlToImage}}" class="imagesize w-full" width='1280' height='720' alt="{{article.title}}" loading="lazy">
+    @if(image){
+      @if(article.urlToImage == null){
+        <img src="assets/image-not-found.png" class="imagesize" width='1280' height='720' alt="{{article.title}}" loading="lazy">
+      }@else{
+        <img src="{{article.urlToImage}}" class="imagesize w-full" width='1280' height='720' alt="{{article.title}}" loading="lazy">
+      }
     }
     <div class="p-5">
       <h2 class="text-2xl text-bold text-black mb-5">{{article.title}}</h2>
-      <p>{{article.description}}</p>
+      @if(description){
+        <p>{{article.description}}</p>  
+      }
+      @if(article.author){
+        <p class="text-gray-500 text-right font-bold">{{article.author}}</p>
+      }
     </div>
   </div>
 }@else{
@@ -19,10 +26,13 @@
         <img src="{{article.urlToImage}}" class="aspect-video w-full" alt="{{article.title}}">
       }
     </div>
-    <div class="col-span-2">
-      <h2 class="text-2xl font-bold text-black mb-5">
+    <div class="col-span-2 flex flex-col items-end">
+      <h2 class="text-1xl font-medium text-black mb-5">
         {{article.title}}
       </h2>
+      @if(article.author){
+        <p class="text-gray-500 text-right font-bold justify-end">{{article.author}}</p>
+      }
     </div>
   </div>
 }
