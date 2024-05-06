@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
   constructor() { }
   ngOnInit(): void {
     this._apiService.getnewsByCategory('general').subscribe(res => {
-      this.topNews = res.articles.slice(0,3);
+      this.topNews = res.articles.slice(0,7);
     })
     //get the busines news
     this._apiService.getnewsByCategory('business').subscribe(res => {
