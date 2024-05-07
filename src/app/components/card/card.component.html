@@ -13,7 +13,10 @@
         <p>{{article.description}}</p>  
       }
       @if(article.author){
-        <p class="text-gray-500 text-right font-bold">{{article.author}}</p>
+        <div class="flex items-center justify-end">
+          <img class="w-10 h-10 p-1 rounded-full ring-1 mr-3 ring-gray-300 dark:ring-gray-500" src="/assets/profile-picture-5.jpg" alt="Bordered avatar">
+          <p class="text-gray-500 text-right font-bold">{{article.author}}</p>
+        </div>
       }
     </div>
   </div>
@@ -26,8 +29,8 @@
         <img src="{{article.urlToImage}}" class="aspect-video w-full" alt="{{article.title}}">
       }
     </div>
-    <div class="col-span-2 flex flex-col items-end">
-      <h2 class="text-1xl font-medium text-black mb-5">
+    <div class="col-span-2 flex flex-col items-end justify-center">
+      <h2 class="text-1xl font-medium text-black mb-2">
         {{article.title}}
       </h2>
       @if(article.author){
